@@ -1,9 +1,9 @@
 import { IsEmail, IsNumber, IsOptional, MaxLength, MinLength } from "class-validator";
 import { minLengthValidationOption } from "src/common/validation-dto";
-import { StudentDto } from "./student.dto";
+import { AnimalDto } from "./animal.dto";
 
 
-export class UpdateStudentDto extends StudentDto{
+export class UpdateAnimalDto extends AnimalDto{
     age: number;
     clasification: string;
     gender: string;

@@ -1,6 +1,6 @@
 import { IsEmail, MaxLength, MinLength } from "class-validator";
 
-export class StudentDto {
+export class AnimalDto {
   @IsEmail(
     {},
     { message: "El campo email debe ser un correo válido" }

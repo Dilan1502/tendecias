@@ -1,10 +1,9 @@
 import { PickType } from "@nestjs/swagger";
-
 import { IsString } from "class-validator";
-import { StudentDto } from "./student.dto";
+import { AnimalDto } from "./animal.dto";
 
 
-export class ChangeState2StudentDto extends PickType(StudentDto, ['name']) {
+export class ChangeState2AnimalDto extends PickType(AnimalDto, ['name']) {
     @IsString()
     state: string;
 

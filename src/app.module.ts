@@ -2,14 +2,14 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
-import { StudentModule } from './student/student.module';
+import { AnimalModule } from './student/animal.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { StudentEntity } from './student/student.entity';
+import { AnimalEntity } from './student/animal.entity';
 
 
 
 @Module({
-  imports: [UserModule, StudentModule,
+  imports: [UserModule, AnimalModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -17,7 +17,7 @@ import { StudentEntity } from './student/student.entity';
       username: 'postgres',
       password: '1234',
       database: 'tap',
-      entities: [StudentEntity],
+      entities: [AnimalEntity],
       synchronize: true,
     }),],
 

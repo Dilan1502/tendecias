@@ -1,7 +1,7 @@
 import { IsBoolean, IsEmail, IsNotEmpty, IsString, MinLength} from "class-validator";
 
 
-export class CreateStudentDto {
+export class CreateAnimalDto {
     @IsEmail(
       {},
       {message:"Debe ser un email vailidoooo",},
