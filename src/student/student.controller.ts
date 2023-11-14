@@ -3,6 +3,7 @@ import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { StudentDto } from "./dto/student.dto";
 import { UpdateStudentDto } from "./dto/update-student.dto";
 import { ChangeStateStudentDto } from "./dto/change-state-student.dto";
+import { ChangeState2StudentDto } from "./dto/change-state2-student.dto";
 @ApiTags('Student')
 @Controller('student')
 export class StudentController {
@@ -38,7 +39,7 @@ findOne(@Param('id') id: number){
 //PATCH ya esta
     @ApiOperation({description:"description",summary:"change student",   })
     @Patch(':id')
-    changeState(@Param('id', ParseIntPipe) id: number, @Body() payload:ChangeStateStudentDto){
+    changeState(@Param('id', ParseIntPipe) id: number, @Body() payload:ChangeState2StudentDto){
         return {id, body: payload};
     }
 

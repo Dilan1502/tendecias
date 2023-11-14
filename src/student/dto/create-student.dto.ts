@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, MinLength} from "class-validator";
+import { IsBoolean, IsEmail, IsNotEmpty, MinLength} from "class-validator";
 
 
 export class CreateStudentDto {
@@ -13,4 +13,8 @@ export class CreateStudentDto {
 
     @IsNotEmpty()
     phone: string;
+
+    @IsBoolean()
+    state: boolean;
+
   }
