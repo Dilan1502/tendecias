@@ -1,6 +1,19 @@
 import { IsEmail, IsNumber, IsOptional, MaxLength, MinLength } from "class-validator";
 import { minLengthValidationOption } from "src/common/validation-dto";
+import { StudentDto } from "./student.dto";
 
+
+export class UpdateStudentDto extends StudentDto{
+    age: number;
+    clasification: string;
+    gender: string;
+    id: number;
+    race: string;
+    size: number;
+    specie: string;
+}
+
+/*
 export class UpdateStudentDto {
   @IsEmail({}, { message: "El campo email debe ser un correo válido" })
   email: string;
@@ -27,5 +40,5 @@ export class UpdateStudentDto {
   score: number;
 }
 
-
+*/
     /*metodo put */

@@ -1,4 +1,4 @@
-import { IsBoolean, IsEmail, IsNotEmpty, MinLength} from "class-validator";
+import { IsBoolean, IsEmail, IsNotEmpty, IsString, MinLength} from "class-validator";
 
 
 export class CreateStudentDto {
@@ -16,5 +16,15 @@ export class CreateStudentDto {
 
     @IsBoolean()
     state: boolean;
+
+    @IsString()
+    bloodType: string;
+    age: number;
+    clasification: string;
+    gender: string;
+    id: number;
+    race: string;
+    size: number;
+    specie: string;
 
   }

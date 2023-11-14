@@ -4,37 +4,41 @@ import { StudentDto } from "./dto/student.dto";
 import { UpdateStudentDto } from "./dto/update-student.dto";
 import { ChangeStateStudentDto } from "./dto/change-state-student.dto";
 import { ChangeState2StudentDto } from "./dto/change-state2-student.dto";
+import { StudentServices } from "./student.services";
+import { CreateStudentDto } from "./dto/create-student.dto";
 @ApiTags('Student')
 @Controller('student')
 export class StudentController {
-
-    //GET
-    @ApiOperation({description:"description",summary:"find student", })
-    @Get()
-    get(@Query() query: any){
-        return query;
-    } 
-      
-//POST VALIDADOOOOOO
-    @ApiOperation({description:"description", summary:"Create student",})
-    @Post()
-    create(@Body() payload: StudentDto){
-        return payload;
+    constructor(private readonly studentsService:StudentServices){
     }
 
+    //GET
+    @ApiOperation({ description: "find student", summary: "find student", })
+    @Get()
+    async find() {
+        return await this.studentsService.find()
+    }
+      
+//POST VALIDADOOOOOO
+@ApiOperation({ description: "Create student", summary: "Create student", })
+@Post()
+async create(@Body() payload: CreateStudentDto) {
+    return await this.studentsService.create(payload);
+}
+
 //GET One
-@ApiOperation({ description:"description",summary:"find student",})
+@ApiOperation({ description: "find One student", summary: "find One student", })
 @Get(':id')
-findOne(@Param('id') id: number){
-    return id;
+async findOne(@Param('id') id: number) {
+    return await this.studentsService.findOne(id);
 }
 
 //PUT-UPDATE VALIDADOOOO
-    @ApiOperation({ description:"description", summary:"update student",    })
-    @Put(':id')
-    update(@Param ('id' ,ParseIntPipe) id: number, @Body() payload:UpdateStudentDto){
-        return {id, body:payload};
-    }
+@ApiOperation({ description: "update student", summary: "update student", })
+@Put(':id')
+async update(@Param('id', ParseIntPipe) id: number, @Body() payload: UpdateStudentDto) {
+    return await this.studentsService.update(id,payload);
+}
     
 //PATCH ya esta
     @ApiOperation({description:"description",summary:"change student",   })
@@ -44,9 +48,9 @@ findOne(@Param('id') id: number){
     }
 
 //DELETE
-    @ApiOperation({ description:"description", summary:"delete student",   })
-    @Delete(':id')
-    delete(@Param('id', ParseIntPipe) id:number){
-        return 'this info was delete ${id}';
-    }
+@ApiOperation({ description: "delete student", summary: "delete student", })
+@Delete(':id')
+async delete(@Param('id', ParseIntPipe) id: number) {
+    return await this.studentsService.delete(id);
+}
 }
